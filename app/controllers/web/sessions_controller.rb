@@ -1,4 +1,3 @@
-class Web::SessionsController < ApplicationController
-  def new
-  end
+class Web::SessionsController < Web::ApplicationController
+  def new; end
 end
