@@ -17,3 +17,11 @@ body {
 .page-content .mdl-textfield {
   display: block;
 }
+
+.mdl-navigation {
+  padding: 20px;
+}
+
+.mdl-navigation__link {
+  margin: 5px;
+}
