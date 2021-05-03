@@ -16,4 +16,4 @@ test-dc:
 test:
 	bin/rails test
 
-.PHONY: tests
+.PHONY: test
