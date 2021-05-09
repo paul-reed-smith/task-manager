@@ -1,4 +1,4 @@
-/* require material-design-lite/material.min.css */
+//= require material-design-lite/material.min.css 
 
 body {
   min-height: 100vh;
@@ -16,12 +16,4 @@ body {
 
 .page-content .mdl-textfield {
   display: block;
-}
-
-.mdl-navigation {
-  padding: 20px;
-}
-
-.mdl-navigation__link {
-  margin: 5px;
 }
