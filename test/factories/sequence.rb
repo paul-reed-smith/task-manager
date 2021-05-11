@@ -16,6 +16,6 @@ FactoryBot.define do
   end
 
   sequence :expired_at do
-    Time.now + 30.days
+    (Time.now + 30.days).to_date
   end
 end
