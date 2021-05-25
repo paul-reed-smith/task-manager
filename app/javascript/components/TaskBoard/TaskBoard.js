@@ -46,8 +46,7 @@ const TaskBoard = () => {
   const [openedTaskId, setOpenedTaskId] = useState(null);
 
   const generateBoard = () => {
-    // eslint-disable-next-line no-shadow
-    const board = {
+    const generatedBoard = {
       columns: STATES.map(({ key, value }) => ({
         id: key,
         title: value,
@@ -56,7 +55,7 @@ const TaskBoard = () => {
       })),
     };
 
-    setBoard(board);
+    setBoard(generatedBoard);
   };
 
   useEffect(() => generateBoard(), [boardCards]);
@@ -164,8 +163,8 @@ const TaskBoard = () => {
       {mode === MODES.EDIT && (
         <EditPopup
           onLoadCard={loadTask}
-          onDestroyCard={handleTaskDestroy}
-          onUpdateCard={handleTaskUpdate}
+          onCardDestroy={handleTaskDestroy}
+          onCardUpdate={handleTaskUpdate}
           onClose={handleClose}
           cardId={openedTaskId}
         />
