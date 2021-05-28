@@ -159,7 +159,7 @@ const TaskBoard = () => {
       >
         {board}
       </KanbanBoard>
-      {mode === MODES.ADD && <AddPopup onCreateCard={handleTaskCreate} onClose={handleClose} />}
+      {mode === MODES.ADD && <AddPopup onCreateCard={handleTaskCreate} onClose={handleClose} mode={mode} />}
       {mode === MODES.EDIT && (
         <EditPopup
           onLoadCard={loadTask}
@@ -167,6 +167,7 @@ const TaskBoard = () => {
           onCardUpdate={handleTaskUpdate}
           onClose={handleClose}
           cardId={openedTaskId}
+          mode={mode}
         />
       )}
       <Fab className={styles.addButton} color="primary" aria-label="add" onClick={handleOpenAddPopup}>
