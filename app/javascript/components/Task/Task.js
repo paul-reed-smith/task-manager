@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 
 import useStyles from './useStyles';
+import TaskPresenter from '../../presenters/TaskPresenter';
 
 const Task = ({ task, onClick }) => {
   const styles = useStyles();
@@ -26,7 +27,7 @@ const Task = ({ task, onClick }) => {
       <CardHeader action={action} title={task.name} />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {task.description}
+          {TaskPresenter.description(task)}
         </Typography>
       </CardContent>
     </Card>
