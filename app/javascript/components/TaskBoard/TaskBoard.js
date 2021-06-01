@@ -4,13 +4,13 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import { propOr } from 'ramda';
 import '@lourenci/react-kanban/dist/styles.css';
-
 import AddPopup from 'components/AddPopup';
 import ColumnHeader from 'components/ColumnHeader';
 import Task from 'components/Task';
 import EditPopup from 'components/EditPopup';
-import TasksRepository from '../../repositories/TasksRepository';
-import TaskForm from '../../forms/TaskForm';
+import TasksRepository from 'repositories/TasksRepository';
+import TaskForm from 'forms/TaskForm';
+
 import useStyles from './useStyles';
 
 const STATES = [
@@ -162,7 +162,7 @@ const TaskBoard = () => {
       {mode === MODES.ADD && <AddPopup onCreateCard={handleTaskCreate} onClose={handleClose} />}
       {mode === MODES.EDIT && (
         <EditPopup
-          onLoadCard={loadTask}
+          onCardLoad={loadTask}
           onCardDestroy={handleTaskDestroy}
           onCardUpdate={handleTaskUpdate}
           onClose={handleClose}

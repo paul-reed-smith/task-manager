@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { has } from 'ramda';
-
 import TextField from '@material-ui/core/TextField';
 
 import useStyles from './useStyles';
 
 const Form = ({ errors, onChange, task }) => {
-  const handleChangeTextField = (fieldName) => (event) => onChange({ ...task, [fieldName]: event.target.value });
+  const handleChangeTextField = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
+
   const styles = useStyles();
 
   return (
@@ -15,7 +15,8 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('name', errors)}
         helperText={errors.name}
-        onChange={handleChangeTextField('name')}
+        onChange={handleChangeTextField}
+        name="name"
         value={task.name}
         label="Name"
         required
@@ -24,11 +25,11 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('description', errors)}
         helperText={errors.description}
-        onChange={handleChangeTextField('description')}
+        onChange={handleChangeTextField}
+        name="description"
         value={task.description}
         label="Description"
         required
-        multiline
         margin="dense"
       />
     </form>
