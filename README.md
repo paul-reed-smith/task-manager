@@ -1,5 +1,7 @@
 # README
 
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fpaul-reed-smith%2Ftask-manager%2Fbadge%3Fref%3Ddevelop&style=for-the-badge)](https://actions-badge.atrox.dev/paul-reed-smith/task-manager/goto?ref=develop)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
