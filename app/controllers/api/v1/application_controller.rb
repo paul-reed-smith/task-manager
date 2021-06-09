@@ -1,6 +1,4 @@
 class Api::V1::ApplicationController < Api::ApplicationController
-  RANSACK_DEFAULT_SORT = 'id ASC'.freeze
-
   def build_meta(collection)
     {
       count: collection.count,
@@ -9,10 +7,6 @@ class Api::V1::ApplicationController < Api::ApplicationController
       total_pages: collection.total_pages,
       per_page: collection.limit_value,
     }
-  end
-
-  def ransack_params
-    params.to_unsafe_h.fetch(:q, { s: RANSACK_DEFAULT_SORT })
   end
 
   def page
