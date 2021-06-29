@@ -40,3 +40,9 @@ yarn-debug.log*
 
 # VScode
 .vscode
+
+# Coverage
+/coverage
+
+#MasterKey
+/config/master.key
