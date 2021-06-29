@@ -43,3 +43,6 @@ yarn-debug.log*
 
 # Coverage
 /coverage
+
+#MasterKey
+/config/master.key
