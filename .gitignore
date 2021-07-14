@@ -41,6 +41,9 @@ yarn-debug.log*
 # VScode
 .vscode
 
+# JBrains
+.idea
+
 # Coverage
 /coverage
 
