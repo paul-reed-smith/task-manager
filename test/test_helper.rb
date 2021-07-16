@@ -4,7 +4,11 @@ require 'rails/test_help'
 require 'simplecov'
 require 'coveralls'
 
-Coveralls.wear!
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
