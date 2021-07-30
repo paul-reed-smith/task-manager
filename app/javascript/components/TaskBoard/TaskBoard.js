@@ -9,10 +9,10 @@ import AddPopup from 'components/AddPopup';
 import ColumnHeader from 'components/ColumnHeader';
 import Task from 'components/Task';
 import EditPopup from 'components/EditPopup';
-import TasksRepository from '../../repositories/TasksRepository';
-import TaskForm from '../../forms/TaskForm';
+import TasksRepository from 'repositories/TasksRepository';
+import TaskForm from 'forms/TaskForm';
+import TaskPresenter from 'presenters/TaskPresenter';
 import useStyles from './useStyles';
-import TaskPresenter from '../../presenters/TaskPresenter';
 
 const STATES = [
   { key: 'new_task', value: 'New' },

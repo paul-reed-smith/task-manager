@@ -4,11 +4,12 @@ import { Button, Modal, IconButton } from '@material-ui/core/';
 import { Card, CardActions, CardContent, CardHeader } from '@material-ui/core/';
 import CloseIcon from '@material-ui/icons/Close';
 
-import TaskForm from '../../forms/TaskForm';
+import TaskForm from 'forms/TaskForm';
+import Form from 'components/Form';
 import useStyles from './useStyles';
-import Form from '../Form';
 
-const AddPopup = ({ onClose, onCreateCard, mode }) => {
+const AddPopup = (props) => {
+  const { onClose, onCreateCard, mode } = props;
   const [task, setTask] = useState(TaskForm.defaultAttributes());
   const [isSaving, setSaving] = useState(false);
   const [errors, setErrors] = useState({});
@@ -57,7 +58,7 @@ const AddPopup = ({ onClose, onCreateCard, mode }) => {
 AddPopup.propTypes = {
   onClose: PropTypes.func.isRequired,
   onCreateCard: PropTypes.func.isRequired,
-  mode: PropTypes.string.isRequired,
+  mode: PropTypes.oneOf(['add', 'edit', 'none']).isRequired,
 };
 
 export default AddPopup;

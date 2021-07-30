@@ -11,7 +11,7 @@ export default new PropTypesPresenter(
     state: PropTypes.string,
   },
   {
-    idName(task) {
+    taskReadable(task) {
       return `Task # ${this.id(task)} ${this.name(task)}`;
     },
   },
