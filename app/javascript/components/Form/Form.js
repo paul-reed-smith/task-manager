@@ -4,9 +4,17 @@ import { has } from 'ramda';
 import TextField from '@material-ui/core/TextField';
 
 import useStyles from './useStyles';
+import UserSelect from 'components/UserSelect';
+import TaskPresenter from 'presenters/TaskPresenter';
 
-const Form = ({ errors, onChange, task }) => {
-  const handleChangeTextField = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
+const MODES = {
+  ADD: 'add',
+  EDIT: 'edit',
+};
+
+const Form = ({ errors, onChange, task, mode }) => {
+  const handleChangeTextField = (fieldName) => (event) => onChange({ ...task, [fieldName]: event.target.value });
+  const handleChangeSelect = (fieldName) => (user) => onChange({ ...task, [fieldName]: user });
 
   const styles = useStyles();
 
@@ -15,9 +23,8 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('name', errors)}
         helperText={errors.name}
-        onChange={handleChangeTextField}
-        name="name"
-        value={task.name}
+        onChange={handleChangeTextField('name')}
+        value={TaskPresenter.name(task)}
         label="Name"
         required
         margin="dense"
@@ -25,12 +32,31 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('description', errors)}
         helperText={errors.description}
-        onChange={handleChangeTextField}
-        name="description"
-        value={task.description}
+        onChange={handleChangeTextField('description')}
+        value={TaskPresenter.description(task)}
         label="Description"
         required
+        multiline
         margin="dense"
+      />
+      {mode === MODES.EDIT && (
+        <UserSelect
+          label="Author"
+          value={TaskPresenter.author(task)}
+          onChange={handleChangeSelect('author')}
+          isRequired
+          isDisabled
+          error={has('author', errors)}
+          helperText={errors.author}
+        />
+      )}
+      <UserSelect
+        label="Assignee"
+        value={TaskPresenter.assignee(task)}
+        onChange={handleChangeSelect('assignee')}
+        isRequired
+        error={has('assignee', errors)}
+        helperText={errors.assignee}
       />
     </form>
   );
@@ -45,6 +71,7 @@ Form.propTypes = {
     author: PropTypes.arrayOf(PropTypes.string),
     assignee: PropTypes.arrayOf(PropTypes.string),
   }),
+  mode: PropTypes.string.isRequired,
 };
 
 Form.defaultProps = {
