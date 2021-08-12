@@ -41,5 +41,11 @@ yarn-debug.log*
 # VScode
 .vscode
 
-# rubyMine
+# JBrains
 .idea
+
+# Coverage
+/coverage
+
+#MasterKey
+/config/master.key
